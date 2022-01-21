@@ -1,0 +1,46 @@
+{
+  "name": "justino-ig-fetcher",
+  "version": "0.0.1",
+  "description": "Instagram scraper without authenticated API",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha index.spec.js",
+    "dev": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^8.2.1"
+  },
+  "author": {
+    "email": "rafael01justino@gmail.com",
+    "name": "Rafael Justino",
+    "url": "http://rafaeljustino.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafaeljustinox/justino-ig-fetcher.git/issues"
+  },
+  "keywords": [
+    "insta",
+    "instagram",
+    "ig",
+    "scraper",
+    "ig-scraper",
+    "instagram-scraper",
+    "api",
+    "scraper"
+  ],
+  "homepage": "https://github.com/rafaeljustinox/justino-ig-fetcher.git",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rafaeljustinox/justino-ig-fetcher.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
