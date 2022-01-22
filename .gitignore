@@ -88,3 +88,4 @@ app.js
 app.ts
 dist
 tsconfig.tsbuildinfo
+.DS_Store

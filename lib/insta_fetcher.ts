@@ -1,7 +1,6 @@
 import ApiUtil from "./api_util";
 import ReelsUtil from "./reels_util";
 import { ReelsVideo } from "./types";
-
 class InstaFetcher {
 
   sessionId: string;
@@ -73,4 +72,4 @@ class InstaFetcher {
   }
 }
 
-export { InstaFetcher };
+export default InstaFetcher
