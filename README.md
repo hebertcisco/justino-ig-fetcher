@@ -1,4 +1,4 @@
-# justino-ig-fetcher
+# justino-ig-fetcher (Under development)
 
 Scrape data from Instagram without applying for the authenticated API.
 
@@ -509,77 +509,4 @@ Result in array : inbox-like
 
 ## Changelog
 
-* `1.0.0` (2019-03-26) • Initial release
-* `1.0.1` (2019-03-27)
-	- Fixed throw error scope
-	- Fixed single photo post wrongly structured
-	- Added support for comments
-	- Added support for hashtags, mentions and tags in posts and comments
-	- Added posts subscriptions feature from users (untested) and hashtags
-* `1.0.2` (2019-03-27) • Added support for videos
-* `1.0.4` (2019-03-27)
-	- Fixed video post thumbnail & views count
-	- Using promises & observable
-* `1.0.5` (2019-03-27) • Added proper error for private accounts
-* `1.0.6` (2019-03-31) • Private account access doesn't require mutual follow
-* `1.0.7` (2019-04-03) • Added profile's last posts analytics #1 + more
-* `1.0.8` (2019-04-14)
-	- Using classes
-	- Added support for authentication using session cookie (only allows to access friend profile)
-	- Added support for locations
-	- Added search feature for profiles, hashtags & locations
-	- Added user-relevant properties
-	- Added support for notifications history & subscription
-	- Fixed subscriptions since *#1*
-	- Removed useless `id` properties
-* `1.0.9`
-	- Added `business` property to profile (when applicable)
-	- Automatically access public profile anonymously when user blocked
-* `1.0.10` (2020-01-26) • Fixed post comments on anonymous session
-* `1.0.11` (2020-04-18)
-    - Improved subscriptions
-        - Using async/await
-        - Using simple callbacks instead of observables
-        - Using object parameter for options
-        - Added full post fetching option
-        - Added subscription unsubscribe method
-    - Improved `401` detection
-    - Improved parsing
-        - Using RegExp
-        - Removed JSDOM dependency
-    - Added support for edited post captions
-* `1.0.12` (2020-06-16) • Small fix & refactor
-* `1.0.13` (2020-07-10) • Added support for stories
-* `1.0.14` (2020-10-17) • Fixed access to own private profile
-* `1.0.15` (2020-12-19)
-	- Removed Request dependency
-	- Improved `429` detection
-	- Added unit tests
-* `1.0.16` (2020-12-25)
-    - Added full post `commentCount` property
-	- Added partial post `timestamp` property
-	- Added post comment `id` property
-	- Added profile IDs memoization
-    - Added `getProfilePostsById` & `getProfilePosts` methods
-    - Added `getPostComments` method
-    - Added `getHashtagPosts` method
-    - Added `getLocationPostsById` method
-	- Added `409` detection
-    - Improved `401` detection
-	- Restored full post `shortcode` property
-* `1.0.17` (2021-01-21)
-  	- Fixed error on empty profile story
-    - Fixed `409` detection
-  	- Added profile story external link
-* `2.0.0` (202?-??-??)
-    - Refactored names
-    - Refactored scopes
-    - Refactored promises
-    - Refactored errors
-    - Refactored indents
-	- Renamed `getLocation` to `getLocationById`
-    - Reverse subscribe methods `post` & `error` parameters
-    - Improved unit tests coverage
-	- Added JSDoc
-	- Added links to partial post, hashtag & location
-	- Fixed post author link
+* `0.0.2` (2022-01-21) • Initial release

@@ -85,3 +85,4 @@ tests
 .vscode
 
 app.js
+app.ts
