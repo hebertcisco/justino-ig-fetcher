@@ -1,12 +1,7 @@
 {
   "name": "justino-ig-fetcher",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Instagram scraper without authenticated API",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "test": "./node_modules/.bin/mocha index.spec.js",
     "dev": "node app.js"
