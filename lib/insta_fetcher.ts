@@ -1,5 +1,6 @@
 import ApiUtil from "./api_util";
 import ReelsUtil from "./reels_util";
+import { ReelsVideo } from "./types/reels";
 
 class InstaFetcher {
 
@@ -60,7 +61,7 @@ class InstaFetcher {
     return this.queryHashs;
   }
 
-  getReels(shortcode: string) {
+  getReels(shortcode: string): Promise<ReelsVideo> {
     return new Promise(async (resolve, reject) => {
       try {
         const reelsPost = await ApiUtil.get(`reel/${shortcode}`, this.sessionId)
