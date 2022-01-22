@@ -1,6 +1,6 @@
 import ApiUtil from "./api_util";
 import ReelsUtil from "./reels_util";
-import { ReelsVideo } from "./types/reels";
+import { ReelsVideo } from "./types";
 
 class InstaFetcher {
 
@@ -73,4 +73,4 @@ class InstaFetcher {
   }
 }
 
-export default InstaFetcher;
+export { InstaFetcher };

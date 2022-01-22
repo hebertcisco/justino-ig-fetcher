@@ -1,4 +1,4 @@
-import { Reels } from './types/reels';
+import { Reels } from './types';
 
 class ReelsUtil {
   static partialReels(reelsList: Reels[]) {
