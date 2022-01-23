@@ -87,5 +87,7 @@ tests
 app.js
 app.ts
 dist
+lib
 tsconfig.tsbuildinfo
 .DS_Store
+.idea
