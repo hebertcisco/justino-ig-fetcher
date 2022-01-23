@@ -1,13 +1,12 @@
-import { Reels } from './types';
+import {Reels} from '../shared/interfaces';
 
 class ReelsUtil {
-  static partialReels(reelsList: Reels[]) {
+  public static partialReels(reelsList: Reels[]) {
     const reelsVideo = reelsList[0];
     const versions = reelsVideo.video_versions;
     // Sorting by quality
     versions.sort((a, b) => b.width - a.width);
-    const bestQualityVideo = versions[0];
-    return bestQualityVideo;
+    return versions[0];
   }
 }
 
