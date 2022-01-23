@@ -2,9 +2,20 @@
   "name": "justino-ig-fetcher",
   "version": "0.0.9",
   "description": "Instagram scraper without authenticated API",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "test": "./node_modules/.bin/mocha index.spec.js",
-    "dev": "node app.js"
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.(js|ts)\"",
+    "lint": "eslint src --no-ignore --ext  .js,.ts",
+    "lint:fix": "eslint src --fix --no-ignore --ext .js,.ts",
+    "test": "./node_modules/.bin/mocha src/__tests__/index.spec.js",
+    "dev": "node app.js",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
@@ -23,18 +34,23 @@
   "author": {
     "email": "rafael01justino@gmail.com",
     "name": "Rafael Justino",
-    "url": "http://rafaeljustino.com"
+    "url": "https://rafaeljustino.com"
   },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rafaeljustinox/justino-ig-fetcher.git/issues"
   },
   "homepage": "https://github.com/rafaeljustinox/justino-ig-fetcher.git",
-  "dependencies": {},
   "devDependencies": {
+    "@types/node": "16",
+    "@typescript-eslint/eslint-plugin": "5.10.0",
+    "@typescript-eslint/parser": "5.10.0",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
-    "mocha": "^8.2.1"
+    "eslint": "7.32.0",
+    "mocha": "^8.2.1",
+    "prettier": "2.5.1",
+    "typescript": "4.5.5"
   },
   "publishConfig": {
     "access": "public"
