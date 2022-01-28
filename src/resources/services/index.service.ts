@@ -43,6 +43,26 @@ export class Instagram {
             }
         });
     }
+    public async getReels(shortcode: string){
+		return new Promise(async(resolve, reject) => {
+            try {
+                const post = await ApiUtil.get(`reel/${shortcode}`, this.sessionId);
+                resolve(PostsService.partialReels(post));
+            } catch (error) {
+                reject(error)
+            }
+		});
+	}
+	public async getIGTV(shortcode: string){
+		return new Promise(async(resolve, reject) => {
+            try {
+                const post = await ApiUtil.get(`tv/${shortcode}`, this.sessionId);
+                resolve(PostsService.partialIGTV(post));
+            } catch (error) {
+                reject(error)
+            }
+		});
+	}
     public async getProfilePostsById(profileId: any, maxCount: number, pageId: any){
         const queryHashs = await this._getQueryHashs() as any;
         const res = await ApiUtil.graphQL({

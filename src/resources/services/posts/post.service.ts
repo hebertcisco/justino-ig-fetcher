@@ -1,7 +1,8 @@
-import {HASHTAGS_REGEX_PATTERN, INSTAGRAM_BASE_URL, USERNAMES_REGEX_PATTERN} from "../../../shared/constants";
+import { HASHTAGS_REGEX_PATTERN, INSTAGRAM_BASE_URL, USERNAMES_REGEX_PATTERN } from "../../../shared/constants";
+import { ReelsVideo } from "../../../shared/interfaces";
 
 export class PostsService {
-    public static postComment(comment: any){
+    public static postComment(comment: any) {
         return ({
             id: comment['node']['id'],
             user: comment['node']['owner']['username'],
@@ -23,7 +24,7 @@ export class PostsService {
             timestamp: post['node']['taken_at_timestamp']
         });
     }
-    public static fullPost(post: any){
+    public static fullPost(post: any) {
         const caption = post['edge_media_to_caption']['edges'].length > 0 ? post['edge_media_to_caption']['edges'][0]['node']['text'] : null, username = post['owner']['username'], shortcode = post['shortcode'];
         return {
             shortcode,
@@ -33,7 +34,7 @@ export class PostsService {
                 name: post['owner']['full_name'],
                 pic: post['owner']['profile_pic_url'],
                 verified: post['owner']['is_verified'],
-                link: `${INSTAGRAM_BASE_URL}/${ username }`
+                link: `${INSTAGRAM_BASE_URL}/${username}`
             },
             location: post['location'] ? {
                 id: post['location']['id'],
@@ -83,5 +84,48 @@ export class PostsService {
             timestamp: post['taken_at_timestamp'],
             link: INSTAGRAM_BASE_URL + 'p/' + shortcode
         }
+    }
+    public static partialReels(reels: any) {
+        if (!reels) return { error: 'Unable to get reels' }
+
+        let video = reels;
+        if (reels.length) {
+            video = reels[0];
+        }
+        if (video.video_url) {
+            return {
+                ...video.dimensions,
+                url: video.video_url,
+                has_audio: video.has_audio,
+                video_duration: video.video_duration
+            }
+        }
+
+        const reelsVideo = reels[0];
+        const versions = reelsVideo.video_versions;
+        // Sorting by quality
+        versions.sort((a: ReelsVideo, b: ReelsVideo) => b.width - a.width);
+        const bestQualityVideo = versions[0];
+        return bestQualityVideo;
+    }
+    public static partialIGTV(igtv: any) {
+        let video = igtv;
+        if (igtv.length) {
+            video = igtv[0];
+        }
+        if (video.video_url) {
+            return {
+                ...video.dimensions,
+                url: video.video_url,
+                has_audio: video.has_audio,
+                video_duration: video.video_duration
+            }
+        }
+
+        const versions = video.video_versions;
+        // Sorting by quality
+        versions.sort((a: any, b: any) => b.width - a.width);
+        const bestQualityVideo = versions[0];
+        return bestQualityVideo;
     }
 }
